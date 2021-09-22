@@ -16,50 +16,20 @@
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
         <header class="inner">
-          <h1 id="project_title">Jmio web page</h1>
-          <h2 id="project_tagline">PC-G850 memo</h2>
+          <h1 id="project_title"><a href="./index.html">Jmio web page</a></h1>
         </header>
     </div>
 
     <!-- MAIN CONTENT -->
+    <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h3>PC-G850 AUTO START SYSTEM</h3>
-
-<p>The ROM of the PC-G850 has the following code that supports automatic start, and it seems that if there is a character string set to 0x40- at startup, it will jump to address 0x50.
-</p>
-
-<pre><code>
-  // AUTO RUN System of PC-G850V
-  // if Magic Word -
-  //  0x0040 : "MACHINE LANGUAGE",
-  //  0x0050 : 0xC3
-  // Found @ 0x0040 , JP 0x0050 
-  
-  C3BE : 11 40 00     ld  de,0x0040   ; Magic Word Address
-  C3C1 : CD C9 C3     call 0xC3C9     ;
-  C3C4 : D0           ret nc          ;
-  C3C5 : F1           pop af          ;
-  C3C6 : C3 50 00     jp  0x0050      ; if Found, JP 0x0050
-  
-  
-  C3C9 : 21 DA C3     ld  hl,0xC3DA   ; "MACHINE LANGUAGE",0xC3
-  C3CC : 06 11        ld  b,0x11      ; LEN=17
-  C3CE : 1A           ld  a,(de)      ;
-  C3CF : BE           cp  (hl)        ;
-  C3D0 : 20 06        jr  nz,0xC3D8   ;
-  C3D2 : 13           inc de          ;
-  C3D3 : 23           inc hl          ;
-  C3D4 : 10 F8        djnz    0xC3CE  ;
-  C3D6 : 37           scf             ;
-  C3D7 : C9           ret             ;
-  C3D8 : A7           and a           ;
-  C3D9 : C9           ret             ;
-  
-  ; Magic Word Table
-  C3DA : 4D 41 43 48 49 4E 45 20 4C 41 4E 47 55 41 47 45 : MACHINE.LANGUAGE
-  C3EA : C3
-</code></pre>
+        <ul>
+          <li><a href="./pcg850_startup.html">About PC-G850 AUTO START SYSTEM</a></li>
+          <li><a href="./use_11u35_as_daplink.html">How to use the LPC11U35 microcontroller board for debugging with OpenOCD</a></li>
+        </ul>
+      </section>
+    </div>
 
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">

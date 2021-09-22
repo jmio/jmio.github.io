@@ -48,6 +48,14 @@ table {
 Theme Styles
 *******************************************************************************/
 
+li{
+  font-size: 24px;
+}
+
+header a {
+  color:#ebebeb;
+}
+
 body {
   box-sizing: border-box;
   color:#373737;
@@ -358,6 +366,11 @@ Full-Width Styles
   background: #f2f2f2;
   border-top: 1px solid #111;
   border-bottom: 1px solid #111;
+}
+
+#main_content a
+{
+  color:black;
 }
 
 #main_content {
