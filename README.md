@@ -1,3 +1,3 @@
-# PC-G850 Memo
+# Jmio Technical Memo
 
 https://jmio.github.io/
