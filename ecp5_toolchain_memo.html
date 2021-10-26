@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Jmio web page : Technical Memo">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Jmio web page</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <h1 id="project_title"><a href="./index.html">Jmio Technical Memo</a></h1>
+          <h2 id="project_tagline">ECP5 OpenSource Toolchain Install Memo</h2>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+
+<p>
+  Memo for installing the toolchain manually when you want to use litex or SpinalHDL with ECP5.
+</p>
+<p>
+  Required libraries
+</p>
+<pre><code>
+sudo apt-get install build-essential clang bison flex \
+  libreadline-dev gawk tcl-dev libffi-dev git \
+  graphviz xdot pkg-config python3 libboost-system-dev \
+  libeigen3-dev libboost-python-dev libboost-filesystem-dev zlib1g-dev cmake
+</code></pre>
+<p>
+Prjtrellis Install
+</p>
+<pre><code>
+git clone --recursive https://github.com/YosysHQ/prjtrellis
+sudo apt-get install libboost-all-dev
+cd prjtrellis/libtrellis
+cmake -DCMAKE_INSTALL_PREFIX=/usr .
+make
+sudo make install
+</code></pre>
+<p>
+Yosys Install
+</p>
+<pre><code>
+git clone --recursive  https://github.com/YosysHQ/yosys.git
+cd yosys
+make config-clang
+make
+sudo make install
+</code></pre>
+<p>
+nextpnr-ecp5 Install
+</p>
+<pre><code>
+git clone --recursive  https://github.com/YosysHQ/nextpnr.git
+cd nextpnr
+cmake . -DARCH=ecp5 -DTRELLIS_INSTALL_PREFIX=/usr
+make
+sudo make install
+</code></pre>
+<H3><a href="./index.html">Back To Index</a></H3>
+
+  </section>
+  </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+  </body>
+</html>
