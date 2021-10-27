@@ -64,6 +64,7 @@ make config-clang
 make
 sudo make install
 </code></pre>
+
 <p>
 nextpnr-ecp5 Install
 </p>
@@ -74,6 +75,27 @@ cmake . -DARCH=ecp5 -DTRELLIS_INSTALL_PREFIX=/usr
 make
 sudo make install
 </code></pre>
+
+<hr>
+
+<p>
+LiteX & RISC-V Toolchain Install
+</p>
+<pre><code>
+pip3 install meson
+sudo apt install ninja-build
+sudo apt-get install device-tree-compiler
+</code></pre>
+<pre><code>
+mkdir litex
+cd litex
+wget https://raw.githubusercontent.com/enjoy-digital/litex/master/litex_setup.py
+chmod +x litex_setup.py
+./litex_setup.py init install --user
+# !!! x86 gcc toolchain
+./litex_setup.py gcc
+</code></pre>
+
 <H3><a href="./index.html">Back To Index</a></H3>
 
   </section>
